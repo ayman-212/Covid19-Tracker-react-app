@@ -1,16 +1,19 @@
-import { Card, CardContent } from '@material-ui/core'
-import React from 'react'
+import React from 'react';
+import { Card, CardContent } from '@material-ui/core';
 
-const Sidebar = () => {
+import Table from "./Table/Table";
+
+const Sidebar = ({ data }) => {
     return (
         <Card >
             <CardContent>
                 <h3>Live cases by country</h3>
+                <Table tableInfo={data} />
                 {/*table*/}
                 <h3>Worldwide new cases</h3>
                 {/*graph*/}
             </CardContent>
-        </Card> 
+        </Card>
     )
 }
 

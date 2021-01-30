@@ -8,7 +8,7 @@
     flex: 0.9;
 }
 
-@media(max-width: 750px) {
+@media(max-width: 920px) {
     .App {
         flex-direction: column;
     }
