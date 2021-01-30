@@ -8,13 +8,14 @@ import {
 import classes from "./Header.module.css";
 import axios from "../../axios";
 
-const Header = () => {
+const Header = (props) => {
 
     const [countries, setCountries] = useState(null);
     const [country, setCountry] = useState("worldwide");
 
     const onCountryChange = (event) => {
-        setCountry(event.target.value)
+        setCountry(event.target.value);
+        props.specificCountry(event.target.value)
     }
 
     useEffect(() => {
@@ -29,7 +30,7 @@ const Header = () => {
                 setCountries(fetchedCountries);
             })
     }, [])
-    
+
     return (
         <div className={classes.Header}>
             <h1>Covid-19 Tracker</h1>
