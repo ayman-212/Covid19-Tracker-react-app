@@ -1,0 +1,15 @@
+.App {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.Left {
+    flex: 0.9;
+}
+
+@media(max-width: 750px) {
+    .App {
+        flex-direction: column;
+    }
+}
