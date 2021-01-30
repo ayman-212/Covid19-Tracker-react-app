@@ -1,9 +1,9 @@
-import './App.css';
+import Header from "./Containers/Header/Header";
 
 function App() {
     return (
-        <div className="App">
-            <h1>hello covid 19 tracker</h1>
+        <div>
+            <Header />
         </div>
     );
 }
