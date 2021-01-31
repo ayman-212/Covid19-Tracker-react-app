@@ -2,16 +2,14 @@ import React from 'react';
 import { Card, CardContent } from '@material-ui/core';
 
 import Table from "./Table/Table";
+import LineGraph from './LineGraph/LineGraph';
 
-const Sidebar = ({ data }) => {
+const Sidebar = ({ data, x_Axis, y_Axis }) => {
     return (
         <Card >
             <CardContent>
-                <h3>Live cases by country</h3>
                 <Table tableInfo={data} />
-                {/*table*/}
-                <h3>Worldwide new cases</h3>
-                {/*graph*/}
+                <LineGraph />
             </CardContent>
         </Card>
     )

@@ -55,7 +55,7 @@ function App() {
     return (
         <div className={classes.App}>
             {
-                countries && countryInfo && tableData ?
+                countryInfo && countries && tableData ?
                     <Aux>
                         <div className={classes.Left}>
                             <Header
