@@ -1,0 +1,11 @@
+.LineGraph {
+    margin-top: 10px;
+    height: 300px;
+    width: 304px;
+}
+
+@media(max-width: 920px) {
+    .LineGraph {
+        width: 100%;
+    }
+}
