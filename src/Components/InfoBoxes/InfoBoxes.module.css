@@ -3,3 +3,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
+@media (max-width:600px) {
+    .InfoBoxes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

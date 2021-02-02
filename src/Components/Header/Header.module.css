@@ -7,4 +7,11 @@
 
 .Header h1 {
     text-transform: uppercase;
+    font-size: 30px;
+    color: #cc1043;
+    letter-spacing: 1px;
+}
+
+.Header .Dropdown {
+    background-color: #fff;
 }

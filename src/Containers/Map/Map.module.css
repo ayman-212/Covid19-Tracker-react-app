@@ -1,0 +1,48 @@
+.Map {
+    height: 500px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.Popup {
+    width: 160px;
+}
+
+.Flag {
+    height: 70px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 8px;
+}
+
+.Country {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+.Info {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.Info p {
+    flex: 1;
+}
+
+.Info p:first-child {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Info p:last-child {
+    text-align: right;
+    font-size: 16px;
+}

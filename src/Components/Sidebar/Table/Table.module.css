@@ -23,3 +23,9 @@
 .Table tr:nth-of-type(odd) {
     background-color: #f3f2f8;
 }
+
+.Heading {
+    color: #cc1043;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}

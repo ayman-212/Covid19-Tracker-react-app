@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 
 import classes from './Table.module.css';
 import Aux from "../../../hoc/Auxiliry/Auxiliry";
@@ -6,7 +7,7 @@ import Aux from "../../../hoc/Auxiliry/Auxiliry";
 const Table = ({ tableInfo }) => {
     return (
         <Aux>
-            <h3>Live cases by country</h3>
+            <h3 className={classes.Heading}>Live cases by country</h3>
             <div className={classes.Table}>
                 <table>
                     <tbody>
@@ -17,7 +18,7 @@ const Table = ({ tableInfo }) => {
                                 </td>
                                 <td>
                                     <strong>
-                                        {element.cases}
+                                        {numeral(element.cases).format('0,0')}
                                     </strong>
                                 </td>
                             </tr>

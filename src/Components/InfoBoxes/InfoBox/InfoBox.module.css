@@ -1,2 +1,49 @@
 .InfoBox {
+    flex: 1;
+    cursor: pointer;
+}
+
+.InfoBox:nth-child(2) h2 {
+    color: #7dd71d;
+}
+
+.InfoBox:nth-child(3) h2 {
+    color: #fb4443;
+}
+
+.InfoBox:not(:last-child) {
+    margin-right: 15px;
+}
+
+.Active {
+    border-top: 10px solid #cc1043;
+}
+
+.Active:nth-child(2) {
+    border-color: #7dd71d;
+}
+
+.Active:nth-child(3) {
+    border-color: #fb4443;
+}
+
+.InfoBox h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #cc1043
+}
+
+.InfoBoxTotal {
+    color: #6c757d;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    margin-top: 15px !important;
+}
+
+@media (max-width: 600px) {
+    .InfoBox {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
