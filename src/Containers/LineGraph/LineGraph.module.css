@@ -1,7 +1,11 @@
 .LineGraph {
     margin-top: 10px;
-    height: 300px;
+    height: 200px;
     width: 304px;
+}
+
+.Heading {
+    text-transform: capitalize;
 }
 
 @media(max-width: 920px) {

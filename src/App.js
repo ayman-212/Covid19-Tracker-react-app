@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./Components/Header/Header";
 import axios from "./axios";
 import InfoBoxes from "./Components/InfoBoxes/InfoBoxes";
-import Map from "./Components/Map/Map";
+import Map from "./Containers/Map/Map";
 import classes from "./App.module.css";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Aux from "./hoc/Auxiliry/Auxiliry";
@@ -13,6 +13,10 @@ function App() {
     const [country, setCountry] = useState("worldwide");
     const [countryInfo, setCountryInfo] = useState(null);
     const [tableData, setTableData] = useState(null);
+    const [mapCenter, setMapCenter] = useState([34.8, -40.5]);
+    const [mapZoom, setMapZoom] = useState(3);
+    const [mapContries, setMapCountries] = useState(null);
+    const [casesType, setCasesType] = useState('cases');
 
     const countryChangeHandler = (event) => {
         const value = event.target.value
@@ -26,8 +30,21 @@ function App() {
         axios.get(url)
             .then(response => {
                 setCountryInfo(response.data)
+                setMapZoom(4)
+                if (url === "/all") {
+                    setMapCenter([34.8, -40.5]);
+                    setMapZoom(3);
+                } else {
+                    setMapCenter([response.data.countryInfo.lat, response.data.countryInfo.long]);
+                    setMapZoom(4);
+
+                }
             })
             ;
+    }
+
+    const onCardClickHandler = (type) => {
+        setCasesType(type)
     }
 
     useEffect(() => {
@@ -36,13 +53,14 @@ function App() {
                 const fetchedCountries = response.data.map(fetchedCountry => {
                     return {
                         name: fetchedCountry.country,
-                        value: fetchedCountry.countryInfo.iso2
+                        value: fetchedCountry.country
                     }
                 })
                 setCountries(fetchedCountries);
                 const fetchedTableData = response.data.sort((a, b) =>
                     b.cases - a.cases)
                 setTableData(fetchedTableData);
+                setMapCountries(response.data)
             })
             ;
         axios.get('/all')
@@ -55,18 +73,28 @@ function App() {
     return (
         <div className={classes.App}>
             {
-                countryInfo && countries && tableData ?
+                countryInfo ?
                     <Aux>
                         <div className={classes.Left}>
                             <Header
                                 countries={countries}
                                 country={country}
                                 onCountryChange={countryChangeHandler} />
-                            <InfoBoxes info={countryInfo} />
-                            <Map />
+                            <InfoBoxes
+                                info={countryInfo}
+                                cardClicked={onCardClickHandler}
+                                casesType={casesType} />
+                            <Map
+                                center={mapCenter}
+                                zoom={mapZoom}
+                                countries={mapContries}
+                                casesType={casesType} />
                         </div>
                         <div className={classes.Right}>
-                            <Sidebar data={tableData} />
+                            <Sidebar
+                                data={tableData}
+                                casesType={casesType}
+                                country={country} />
                         </div>
                     </Aux>
                     :
