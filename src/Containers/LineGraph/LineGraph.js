@@ -71,8 +71,9 @@ const LineGraph = ({ casesType, country }) => {
     }
 
     useEffect(() => {
+        const numberOfDays = Math.ceil((new Date().getTime() - new Date(2020, 1, 22).getTime()) / (1000 * 60 * 60 * 24));
         if (country === 'worldwide') {
-            axios.get('/historical/all?lastdays=360')
+            axios.get(`/historical/all?lastdays=${numberOfDays}`)
                 .then(response => {
                     const [dates, statistics] = buildChartData(response.data, casesType);
                     setDates(dates)
@@ -116,7 +117,7 @@ const LineGraph = ({ casesType, country }) => {
 
     return (
         <Aux>
-            <h3 className>{country} all COVID-19 {casesType}</h3>
+            <h3 className={classes.Heading}>{country} {country === 'worldwide' ? null : 'all'} COVID-19 {casesType}</h3>
             <div className={classes.LineGraph}>
                 <Line data={data} options={options} />
             </div>

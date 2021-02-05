@@ -5,7 +5,8 @@ import numeral from "numeral"
 
 import classes from './Map.module.css';
 
-const Map = ({ zoom, center, countries, casesType = 'cases' }) => {
+
+const Map = ({ zoom, center, countries, casesType }) => {
 
     const MyComponent = () => {
         const map = useMap()
@@ -16,15 +17,15 @@ const Map = ({ zoom, center, countries, casesType = 'cases' }) => {
     const casesTypeColors = {
         cases: {
             hex: "#CC1034",
-            multiplier: 350,
+            multiplier: 350
         },
         recovered: {
             hex: "#7dd71d",
-            multiplier: 350,
+            multiplier: 350
         },
         deaths: {
             hex: "#fb4443",
-            multiplier: 1000,
+            multiplier: 1000
         },
     };
 
@@ -50,6 +51,11 @@ const Map = ({ zoom, center, countries, casesType = 'cases' }) => {
                             fillColor: casesTypeColors[casesType].hex
                         }}
                         radius={Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier}
+                        eventHandlers={{
+                            click: () => {
+                              console.log('marker clicked')
+                            },
+                          }}
                     >
                         <Popup>
                             <div className={classes.Popup}>

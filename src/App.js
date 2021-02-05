@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./Components/Header/Header";
 import axios from "./axios";
 import InfoBoxes from "./Components/InfoBoxes/InfoBoxes";
-import Map from "./Containers/Map/Map";
+import Map from "./Components/Map/Map";
 import classes from "./App.module.css";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Aux from "./hoc/Auxiliry/Auxiliry";
@@ -37,7 +37,6 @@ function App() {
                 } else {
                     setMapCenter([response.data.countryInfo.lat, response.data.countryInfo.long]);
                     setMapZoom(4);
-
                 }
             })
             ;
