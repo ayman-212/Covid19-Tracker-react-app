@@ -21,6 +21,7 @@ function App() {
     const countryChangeHandler = (event) => {
         const value = event.target.value
         setCountry(value);
+        document.getElementById('map').click();
         const url = value === "worldwide" ?
             "/all"
             :

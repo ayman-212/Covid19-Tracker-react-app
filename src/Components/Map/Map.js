@@ -35,7 +35,8 @@ const Map = ({ zoom, center, countries, casesType }) => {
                 style={{ height: "100%" }}
                 center={center}
                 zoom={zoom}
-                scrollWheelZoom={false}>
+                scrollWheelZoom={false}
+                id="map">
                 <MyComponent center={center} zoom={zoom} />
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
